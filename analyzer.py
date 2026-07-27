@@ -1,13 +1,12 @@
 import os
+import streamlit as st
 from dotenv import load_dotenv
 from groq import Groq
 
-
-# Load environment variables
 load_dotenv()
 
+st.write("GROQ_API_KEY found:", os.getenv("GROQ_API_KEY") is not None)
 
-# Groq API setup
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
@@ -19,6 +18,7 @@ client = Groq(
 # -------------------------------
 
 def analyze_resume(resume_text, job_description):
+    import streamlit as st
 
     prompt = f"""
 You are an expert ATS Resume Analyzer.
